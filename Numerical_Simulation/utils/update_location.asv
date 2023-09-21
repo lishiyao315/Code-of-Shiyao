@@ -1,0 +1,22 @@
+function dot_estimate = update_location(pos_base,estimate_pos,topology,id)
+% 定位更新模块 输出是定位估计值的变化率 2*1
+% **************************************************
+% 输入变量            定义              维数
+% unit_vect           单位航向矢量      2*num
+% pos_base            基座位置          2*num
+% id                  当前处理的个体ID  1*1
+% estimate_target     目标估计值        2*num
+% ***************************************************
+%更新量先清零
+        dot_estimate_p = [0;0];
+        for j = 1:num
+            if id ~= j
+            unit_vector_realneigh = unit_vector(pos_base(:,id), pos_base(:,j));
+            unit_vector_estimateneigh = unit_vector(estimate_pos(:,id), estimate_pos(:,j));
+            project_matrix_estimateneigh = project_matrix(unit_vector_estimateneigh);
+            dot_estimate_p = dot_estimate_p(:,id) - topology(id,j) * project_matrix_estimateneigh * unit_vector_realneigh;
+            end
+        end
+        dot_estimate = dot_estimate_p;
+        
+end

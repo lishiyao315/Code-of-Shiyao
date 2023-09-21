@@ -1,0 +1,38 @@
+The whole Simulation program consists of two parts, one of which is Numerical Simulation, which is used for numerical simulation. 
+The other is Simulation with Rotating Platform Model in Loop, which is used to verify the algorithm performance of the actual platform model in loop.
+
+
+
+Ⅰ) Numerical Simulation operation flow
+
+    1) Open the Numerical_Simulation folder
+
+    2) Open the targeting_control_6.m program
+
+    3) Parameter setting, including base position, target position, parameter gain, etc
+
+    4) Run, the simulation results are presented in figure form, and an avi format video is generated to show the estimated value and the change process of the direction
+
+
+
+Ⅱ) Simulation with Rotating Platform Model in Loop operation process
+
+    1) Open the Model_in_Loop_UE4 folder and run the aero.exe program
+
+    2) Open acc_parameter_num6.m to set parameters
+
+    3) Run acc_num6.slx program
+
+
+
+Note: Run aero.exe through a bat file and embed it in simulink's intial function. Specific operations are as follows:
+
+    1) Open START_UE.txt, change the address to the aero.exe address on the user's computer, and change the file to bat format after the change
+
+    2) Open Simulink, open Model Property-Callbacks-initfcn *, and add '! START_UE'
+
+    3) Run the acc_num6.slx program with one key
+
+ 
+
+
